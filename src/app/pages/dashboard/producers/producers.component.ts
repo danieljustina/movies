@@ -18,13 +18,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 10, name: 'Neon'},
 ];
 
-
 @Component({
-  selector: 'app-list-movies',
-  templateUrl: './list-movies.component.html',
-  styleUrls: ['./list-movies.component.scss']
+  selector: 'app-producers',
+  templateUrl: './producers.component.html',
+  styleUrls: ['./producers.component.scss']
 })
-export class ListMoviesComponent {
+export class ProducersComponent  {
 
   constructor() { }
 

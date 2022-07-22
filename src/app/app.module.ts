@@ -12,6 +12,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MaterialModule } from 'src/material.module';
+import { WinnersYearComponent } from './pages/dashboard/winners-year/winners-year.component';
+import { TopStudiosComponent } from './pages/dashboard/top-studios/top-studios.component';
+import { ProducersComponent } from './pages/dashboard/producers/producers.component';
+import { ListMoviesYearComponent } from './pages/dashboard/list-movies-year/list-movies-year.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { MaterialModule } from 'src/material.module';
     DashboardComponent,
     ListMoviesComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    WinnersYearComponent,
+    TopStudiosComponent,
+    ProducersComponent,
+    ListMoviesYearComponent
   ],
   imports: [
     AppRoutingModule,

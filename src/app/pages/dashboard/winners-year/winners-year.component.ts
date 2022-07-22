@@ -19,14 +19,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 
-@Component({
-  selector: 'app-list-movies',
-  templateUrl: './list-movies.component.html',
-  styleUrls: ['./list-movies.component.scss']
-})
-export class ListMoviesComponent {
 
-  constructor() { }
+@Component({
+  selector: 'app-winners-year',
+  templateUrl: './winners-year.component.html',
+  styleUrls: ['./winners-year.component.scss']
+})
+export class WinnersYearComponent {
 
   displayedColumns: string[] = ['position', 'name'];
   dataSource = ELEMENT_DATA;

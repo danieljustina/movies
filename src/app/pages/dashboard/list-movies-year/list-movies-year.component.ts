@@ -20,11 +20,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 @Component({
-  selector: 'app-list-movies',
-  templateUrl: './list-movies.component.html',
-  styleUrls: ['./list-movies.component.scss']
+  selector: 'app-list-movies-year',
+  templateUrl: './list-movies-year.component.html',
+  styleUrls: ['./list-movies-year.component.scss']
 })
-export class ListMoviesComponent {
+export class ListMoviesYearComponent  {
 
   constructor() { }
 
