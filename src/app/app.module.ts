@@ -8,6 +8,10 @@ import { ListMoviesComponent } from './pages/list-movies/list-movies.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MaterialModule } from 'src/material.module';
 
 @NgModule({
   declarations: [
@@ -15,13 +19,18 @@ import { HeaderComponent } from './components/header/header.component';
     NotFoundComponent,
     DashboardComponent,
     ListMoviesComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     AppRoutingModule,
     HttpClientModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

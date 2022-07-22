@@ -2,12 +2,14 @@
     display: flex;
     height: 60px;
     background-color: var(--primary-color-4);
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     .logo {
         color: #fff;
-        margin: 10px 0 0 20px;
+        margin-left: var(--spacer-size-sm);
+        display: flex;
+        align-self: flex-end;
     }
 
     .grupo-usuario {
