@@ -12,12 +12,8 @@ export class MenuComponent {
     private _router: Router
   ) { }
 
-  onDashboard() {
-    this._router.navigate(['dashboard']);
-  }
-
-  onList() {
-    this._router.navigate(['movies']);
+  onRedirect(router: string) {
+    this._router.navigate([router]);
   }
 
 }

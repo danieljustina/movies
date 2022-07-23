@@ -2,11 +2,11 @@
     <mat-icon>menu</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-    <button (click)="onDashboard()" mat-menu-item>
+    <button (click)="onRedirect('dashboard')" mat-menu-item>
         <mat-icon>dashboard</mat-icon>
         <span>Dashboard</span>
     </button>
-    <button (click)="onList()" mat-menu-item>
+    <button (click)="onRedirect('movies')" mat-menu-item>
         <mat-icon>movie</mat-icon>
         <span>List</span>
     </button>

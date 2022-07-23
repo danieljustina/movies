@@ -17,6 +17,7 @@ import { TopStudiosComponent } from './pages/dashboard/top-studios/top-studios.c
 import { ProducersComponent } from './pages/dashboard/producers/producers.component';
 import { ListMoviesYearComponent } from './pages/dashboard/list-movies-year/list-movies-year.component';
 import { IntervalProducerComponent } from './pages/dashboard/producers/interval-producer/interval-producer.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { IntervalProducerComponent } from './pages/dashboard/producers/interval-
     FormsModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
