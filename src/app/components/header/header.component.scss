@@ -6,7 +6,7 @@
     align-items: center;
     width: 100%;
     .logo {
-        color: #fff;
+        color: var(--background-color-white);
         margin-left: var(--spacer-size-sm);
         display: flex;
         align-self: flex-end;

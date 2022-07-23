@@ -10,11 +10,11 @@ import { WinnerYear } from './models/winner-year';
 export class WinnersYearService {  
   private readonly baseURL = environment["urlAPI"];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private _httpClient: HttpClient) {
   }
 
   public getWinnersYear(): Observable<WinnerYear[]> {
-    return this.httpClient.get<WinnerYear[]>(`${this.baseURL}?projection=years-with-multiple-winners`).pipe(
+    return this._httpClient.get<WinnerYear[]>(`${this.baseURL}?projection=years-with-multiple-winners`).pipe(
       map((res:any) => res.years)
     );
   }

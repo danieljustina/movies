@@ -11,10 +11,10 @@ export class IntervalProducerService {
 
   private readonly baseURL = environment["urlAPI"];
 
-  constructor(private httpClient: HttpClient ) {
+  constructor(private _httpClient: HttpClient ) {
   }
 
   public getIntervalProducers(): Observable<IntervalProducer> {
-    return this.httpClient.get<IntervalProducer>(`${this.baseURL}?projection=max-min-win-interval-for-producers`);
+    return this._httpClient.get<IntervalProducer>(`${this.baseURL}?projection=max-min-win-interval-for-producers`);
   }
 }

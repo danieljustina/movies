@@ -1,34 +1,60 @@
-import { Component } from '@angular/core';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'},
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
-];
-
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
+import { ListMoviesService } from './list-movies.service';
+import { Movie } from './models/movie';
 
 @Component({
   selector: 'app-list-movies',
   templateUrl: './list-movies.component.html',
   styleUrls: ['./list-movies.component.scss']
 })
-export class ListMoviesComponent {
+export class ListMoviesComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  dataSource: MatTableDataSource<Movie>;
+  displayedColumns: string[] = ['id', 'year', 'title', 'winner'];
+  totalRows = 0;
+  pageSize = 5;
+  currentPage = 0;
 
-  constructor() { }
+  constructor(
+    private _listMoviesService: ListMoviesService,
+    private _toastr: ToastrService
+  ) {
+    this.dataSource = new MatTableDataSource();
+  }
 
-  displayedColumns: string[] = ['position', 'name'];
-  dataSource = ELEMENT_DATA;
+  ngOnInit(): void {
+    this.getWinnersYear();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  getWinnersYear() {
+    this._listMoviesService.getWinnersYear(this.currentPage, this.pageSize)
+      .subscribe({
+        next: (res: any) => {
+          this.dataSource = new MatTableDataSource(res.content);
+          this.currentPage = res.number;
+          this.totalRows = res.totalElements;
+          setTimeout(() => {
+            this.paginator.pageIndex = this.currentPage;
+            this.paginator.length = this.totalRows;
+          })
+        },
+        error: () => this._toastr.error('Erro ao buscar registros!')
+      });
+  }
+
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getWinnersYear();
+  }
+
 
 }

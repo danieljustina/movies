@@ -11,11 +11,11 @@ export class ListMoviesYearService {
 
   private readonly baseURL = environment["urlAPI"];
 
-  constructor(private httpClient: HttpClient ) {
+  constructor(private _httpClient: HttpClient ) {
   }
 
   public getMovieWinner(year: number): Observable<MoviesYear[]> {
-    return this.httpClient.get<MoviesYear[]>(`${this.baseURL}?winner=true&year=${year}`);
+    return this._httpClient.get<MoviesYear[]>(`${this.baseURL}?winner=true&year=${year}`);
   }
 
 }

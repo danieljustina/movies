@@ -11,11 +11,11 @@ export class TopStudiosService {
 
   private readonly baseURL = environment["urlAPI"];
 
-  constructor(private httpClient: HttpClient ) {
+  constructor(private _httpClient: HttpClient ) {
   }
 
   public getStudios(): Observable<Studio[]> {
-    return this.httpClient.get<Studio[]>(`${this.baseURL}?projection=studios-with-win-count`).pipe(
+    return this._httpClient.get<Studio[]>(`${this.baseURL}?projection=studios-with-win-count`).pipe(
       map((res:any) => res.studios)
     );
   }
