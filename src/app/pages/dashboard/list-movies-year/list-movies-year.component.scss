@@ -3,8 +3,12 @@
     font-weight: var(--font-weight-bold);
 }
 
+.input__search {
+    width: 100%;
+}
+
 .container-table {
-    height: 38vh;
+    height:34vh;
     max-width: 100%;
     overflow: auto;
 }

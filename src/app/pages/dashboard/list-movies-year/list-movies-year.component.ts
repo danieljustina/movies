@@ -1,21 +1,14 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
   position: number;
+  title: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'},
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
+
 ];
 
 
@@ -25,10 +18,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./list-movies-year.component.scss']
 })
 export class ListMoviesYearComponent  {
+  searchControl: FormControl;
 
-  constructor() { }
+  constructor() {
+    this.searchControl = new FormControl('');
+  }
 
-  displayedColumns: string[] = ['position', 'name'];
+  displayedColumns: string[] = ['position', 'name', 'title'];
   dataSource = ELEMENT_DATA;
 
+  onSearch() {
+    console.log(this.searchControl.value);
+  }
 }

@@ -16,6 +16,7 @@ import { WinnersYearComponent } from './pages/dashboard/winners-year/winners-yea
 import { TopStudiosComponent } from './pages/dashboard/top-studios/top-studios.component';
 import { ProducersComponent } from './pages/dashboard/producers/producers.component';
 import { ListMoviesYearComponent } from './pages/dashboard/list-movies-year/list-movies-year.component';
+import { IntervalProducerComponent } from './pages/dashboard/producers/interval-producer/interval-producer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListMoviesYearComponent } from './pages/dashboard/list-movies-year/list
     WinnersYearComponent,
     TopStudiosComponent,
     ProducersComponent,
-    ListMoviesYearComponent
+    ListMoviesYearComponent,
+    IntervalProducerComponent
   ],
   imports: [
     AppRoutingModule,
