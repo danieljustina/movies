@@ -1,33 +1,37 @@
-import { Component } from '@angular/core';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'},
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'},
-];
-
-
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
+import { WinnerYear } from './models/winner-year';
+import { WinnersYearService } from './winners-year.service';
 
 @Component({
   selector: 'app-winners-year',
   templateUrl: './winners-year.component.html',
   styleUrls: ['./winners-year.component.scss']
 })
-export class WinnersYearComponent {
+export class WinnersYearComponent implements OnInit {
+  dataSource: MatTableDataSource<WinnerYear>;
+  displayedColumns: string[] = ['year', 'winnerCount'];
 
-  displayedColumns: string[] = ['position', 'name'];
-  dataSource = ELEMENT_DATA;
+  constructor(
+    private _winnersYearService: WinnersYearService,
+    private _toastr: ToastrService
+  ) {
+    this.dataSource = new MatTableDataSource();
+   }
+
+   ngOnInit(): void {
+    this.getWinnersYear();
+  }
+
+  getWinnersYear() {
+    this._winnersYearService.getWinnersYear()
+      .subscribe({
+        next: (res: WinnerYear[]) => {
+          this.dataSource = new MatTableDataSource(res);
+        },
+        error: () => this._toastr.error('Erro ao buscar registros!')
+      });
+  }
 
 }
