@@ -3,31 +3,11 @@
         <div class="row col-12 pt-3">
             <div class="title mb-1">List movies</div>
             <div class="mat-elevation-z8 container-table">
-                <table mat-table [dataSource]="dataSource">
-
-                    <ng-container matColumnDef="id">
-                        <th mat-header-cell *matHeaderCellDef> ID </th>
-                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="year">
-                        <th mat-header-cell *matHeaderCellDef> Year </th>
-                        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="title">
-                        <th mat-header-cell *matHeaderCellDef> Title </th>
-                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="winner">
-                        <th mat-header-cell *matHeaderCellDef> Winner? </th>
-                        <td mat-cell *matCellDef="let element"> {{element.winner}} </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
+                <app-table 
+                    [table]="table" 
+                    [dataSource]="dataSource"
+                    (dataSearch)="dataSearch($event)"
+                ></app-table>
                 <mat-paginator 
                         [pageSizeOptions]="[5, 10, 20]" 
                         [length]="totalRows"

@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { ListMoviesYearService } from './list-movies-year.service';
 import { MoviesYear } from './models/movies-year';
+import { Table } from '../../../components/table/models/table';
 
 @Component({
   selector: 'app-list-movies-year',
@@ -13,7 +14,7 @@ import { MoviesYear } from './models/movies-year';
 export class ListMoviesYearComponent {
   searchControl: FormControl;
   dataSource: MatTableDataSource<MoviesYear>;
-  displayedColumns: string[] = ['id', 'year', 'title'];
+  table: Table[] = [{name: 'id', description: 'year'}, {name: 'year', description: 'Year'}, {name: 'title', description: 'Title'}];
   minYearSearch = 1900;
 
   constructor(

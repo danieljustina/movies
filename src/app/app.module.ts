@@ -18,6 +18,7 @@ import { ProducersComponent } from './pages/dashboard/producers/producers.compon
 import { ListMoviesYearComponent } from './pages/dashboard/list-movies-year/list-movies-year.component';
 import { IntervalProducerComponent } from './pages/dashboard/producers/interval-producer/interval-producer.component';
 import { ToastrModule } from 'ngx-toastr';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     TopStudiosComponent,
     ProducersComponent,
     ListMoviesYearComponent,
-    IntervalProducerComponent
+    IntervalProducerComponent,
+    TableComponent
   ],
   imports: [
     AppRoutingModule,

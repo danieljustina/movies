@@ -16,8 +16,8 @@ export class ListMoviesService {
 
   public getWinnersYear(page: number, size: number, winner?: boolean, year?: number ): Observable<Movie[]> {
     let queryParam = `page=${page}&size=${size}`;
-    queryParam = winner != undefined ? `&winner=${winner}` : queryParam;
-    queryParam = year ? `&year=${year}` : queryParam;
+    queryParam += winner != undefined ? `&winner=${winner}` : '';
+    queryParam += year ? `&year=${year}` : '';
 
     return this._httpClient.get<Movie[]>(`${this.baseURL}?${queryParam}`);
   }

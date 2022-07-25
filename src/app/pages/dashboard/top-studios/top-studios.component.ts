@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
+import { Table } from 'src/app/components/table/models/table';
 import { Studio } from './models/studio';
 import { TopStudiosService } from './top-studios.service';
 
@@ -11,7 +12,11 @@ import { TopStudiosService } from './top-studios.service';
 })
 export class TopStudiosComponent implements OnInit {
   dataSource: MatTableDataSource<Studio>;
-  displayedColumns: string[] = ['name', 'winCount'];
+  table: Table[] = [
+    {name: 'name', description: 'Name'}, 
+    {name: 'winCount', description: 'Win Count'}, 
+  ];
+
   COUNT_TOP_STUDIOS = 3;
 
   constructor(
