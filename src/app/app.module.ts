@@ -19,6 +19,7 @@ import { ListMoviesYearComponent } from './pages/dashboard/list-movies-year/list
 import { IntervalProducerComponent } from './pages/dashboard/producers/interval-producer/interval-producer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { TableComponent } from './components/table/table.component';
+import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { TableComponent } from './components/table/table.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     MaterialModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,12 @@
 # Movies
 
-Project criado com [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Projeto criado com [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
-## Development server
+## Como rodar o projeto?
 
-Execute o comando `ng serve` após acesse a pagina: `http://localhost:4200/`.
+1ª -> Após baixar o projeto execute o comando `npm i` para baixar as dependências. 
+2ª -> Execute o comando `ng serve` após acesse a pagina: `http://localhost:4200/`.
 
-## Running unit tests
+## Como rodar os testes unitários?
 
 Execute o comando `ng test` para executar os testes através do [Karma](https://karma-runner.github.io).
