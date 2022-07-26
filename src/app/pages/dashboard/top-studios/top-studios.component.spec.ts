@@ -9,11 +9,11 @@ describe('TopStudiosComponent', () => {
   let fixture: ComponentFixture<TopStudiosComponent>;
 
   beforeEach(async () => {
-    const httpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'pipe']);
-    const toastrServiceSpy = jasmine.createSpyObj('HttpClient', ['error']);
+    const topStudiosServiceSpy = jasmine.createSpyObj('TopStudiosService', ['getStudios']);
+    const toastrServiceSpy = jasmine.createSpyObj('ToastrService', ['error']);
     await TestBed.configureTestingModule({
       providers: [ TopStudiosComponent, 
-        { provide: HttpClient, useValue: httpClientSpy },
+        { provide: HttpClient, useValue: topStudiosServiceSpy },
         { provide: ToastrService, useValue: toastrServiceSpy }
       ],
     })

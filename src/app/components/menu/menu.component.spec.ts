@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { MenuComponent } from './menu.component';
 
@@ -9,6 +10,14 @@ describe('MenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MenuComponent ]
+    })
+    .compileComponents();
+
+    const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+    await TestBed.configureTestingModule({
+      providers: [ MenuComponent, 
+        { provide: Router, useValue: routerSpy },
+      ],
     })
     .compileComponents();
 
