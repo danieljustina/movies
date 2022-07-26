@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrService } from 'ngx-toastr';
 
 import { ListMoviesYearComponent } from './list-movies-year.component';
 
@@ -7,8 +9,13 @@ describe('ListMoviesYearComponent', () => {
   let fixture: ComponentFixture<ListMoviesYearComponent>;
 
   beforeEach(async () => {
+    const httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    const toastrServiceSpy = jasmine.createSpyObj('HttpClient', ['error']);
     await TestBed.configureTestingModule({
-      declarations: [ ListMoviesYearComponent ]
+      providers: [ ListMoviesYearComponent, 
+        { provide: HttpClient, useValue: httpClientSpy },
+        { provide: ToastrService, useValue: toastrServiceSpy }
+      ],
     })
     .compileComponents();
 

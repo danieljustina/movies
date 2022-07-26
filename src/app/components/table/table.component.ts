@@ -15,7 +15,7 @@ export class TableComponent {
 
  
   get displayedColumns() {
-    return this.table.map(res => res.name);
+    return this.table?.map(res => res.name);
   }
 
   onChangeSearch(event: any) {

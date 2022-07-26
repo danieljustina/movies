@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { IntervalProducerService } from './interval-producer.service';
@@ -6,7 +7,12 @@ describe('IntervalProducerService', () => {
   let service: IntervalProducerService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    const httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    TestBed.configureTestingModule({
+      providers: [ IntervalProducerService, 
+        { provide: HttpClient, useValue: httpClientSpy }
+      ]
+    });
     service = TestBed.inject(IntervalProducerService);
   });
 
