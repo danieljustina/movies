@@ -64,6 +64,7 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
   }
 
   dataSearch(data: any) {
+    this.currentPage = 0;
     if (!isNaN(data)) {
       this.yearSearch = Number(data);
     } else {
